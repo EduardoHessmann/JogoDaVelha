@@ -14,20 +14,23 @@ public class JogoDaVelha_Jogador {
 
 		int linha;
 		int coluna;
-
-		do {
+			
+			System.out.println("Jogador ..");
 
 			System.out.println("Linha: ");
 			linha = teclado.nextInt();
+			System.out.println("Coluna");
 			coluna = teclado.nextInt();
 			
-		} while (mapa.jogar(linha, coluna, letra));
+			mapa.jogar(linha, coluna, letra);
 		
 		if (mapa.ganhou(letra)) {
 			System.out.println("...JOGADOR GANHOU!");
+			
+			return true;
 		}
 
-		return true;
+		return false;
 	}
 
 }

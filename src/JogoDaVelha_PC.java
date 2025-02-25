@@ -23,6 +23,8 @@ public class JogoDaVelha_PC {
 		if (mapa.ganhou(letra)) {
 			System.out.println("...PC GANHOU!");
 		}
+		
+		System.out.println("PC(" + linha + ", " + coluna + ")");
 
 		return true;
 	}

@@ -26,48 +26,66 @@ public class JogoDaVelha_Mapa {
 	}
 
 	public void desenha(int jogada) {
+
+		
+		for (int i = 0; i < mapa.length; i++) {
+			System.out.println("");
+			
+			if (i == 0) {
+				System.out.println("--------- .. Jogada: " + jogada);
+			} else {
+				System.out.println("---------");
+				}
+			
+			for (int j = 0; j < mapa.length; j++) {
+				System.out.print("|" + mapa[i][j] + "|");
+
+			}
+		}
+		System.out.println("\n------------------");
+
 	}
 
 	public boolean jogar(int l, int c, char jogador) {
 
 		if (mapa[l][c] == ' ') {
 			mapa[l][c] = jogador;
-			
+
 			return true;
-			
-		}else {
+
+		} else {
 			return false;
-			
+
 		}
+		
 	}
 
 	public boolean ganhou(char jogador) {
-		
+
 		for (int i = 0; i < mapa.length; i++) {
 			if (mapa[i][0] == jogador && mapa[i][1] == jogador && mapa[i][2] == jogador) {
 				return true;
-				
+
 			}
-			
+
 		}
-		
+
 		for (int j = 0; j < mapa.length; j++) {
 			if (mapa[0][j] == jogador && mapa[1][j] == jogador && mapa[2][j] == jogador) {
 				return true;
-				
+
 			}
-			
+
 		}
-		
+
 		if (mapa[0][0] == jogador && mapa[1][1] == jogador && mapa[2][2] == jogador) {
 			return true;
 		}
-		
+
 		if (mapa[2][0] == jogador && mapa[1][1] == jogador && mapa[0][2] == jogador) {
 			return true;
 		}
-		
-		
+
 		return false;
 	}
 
