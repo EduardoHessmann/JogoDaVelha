@@ -1,13 +1,29 @@
-
 public class JogoDaVelha_PC {
 
 	private JogoDaVelha_Mapa mapa;
 	private char letra;
 
 	public JogoDaVelha_PC(JogoDaVelha_Mapa mapa) {
+		this.mapa = mapa;
+		this.letra = 'O';
 	}
 
-	boolean joga() {
+	public boolean joga() {
+
+		int linha;
+		int coluna;
+
+		do {
+
+			linha = mapa.sortear(0, 2);
+			coluna = mapa.sortear(0, 2);
+			
+		} while (mapa.jogar(linha, coluna, letra));
+		
+		if (mapa.ganhou(letra)) {
+			System.out.println("...PC GANHOU!");
+		}
+
 		return true;
 	}
 

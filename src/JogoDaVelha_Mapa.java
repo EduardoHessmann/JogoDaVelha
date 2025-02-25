@@ -1,23 +1,74 @@
+import java.util.Random;
 
 public class JogoDaVelha_Mapa {
-	
-	private char [][] mapa;
-	
-	
+
+	private char[][] mapa;
+
+	public JogoDaVelha_Mapa() {
+
+		mapa = new char[3][3];
+	}
+
 	public int sortear(int inicio, int fim) {
-		return 0;
+
+		Random random = new Random();
+
+		return random.nextInt(inicio, fim);
 	}
-	
-	public void limpaMapa() {}
-	
-	public void desenha(int jogada) {}
-	
+
+	public void limpaMapa() {
+		for (int i = 0; i < mapa.length; i++) {
+			for (int j = 0; j < mapa.length; j++) {
+				mapa[i][j] = ' ';
+			}
+		}
+
+	}
+
+	public void desenha(int jogada) {
+	}
+
 	public boolean jogar(int l, int c, char jogador) {
-		return true;
+
+		if (mapa[l][c] == ' ') {
+			mapa[l][c] = jogador;
+			
+			return true;
+			
+		}else {
+			return false;
+			
+		}
 	}
-	
+
 	public boolean ganhou(char jogador) {
-		return true;
+		
+		for (int i = 0; i < mapa.length; i++) {
+			if (mapa[i][0] == jogador && mapa[i][1] == jogador && mapa[i][2] == jogador) {
+				return true;
+				
+			}
+			
+		}
+		
+		for (int j = 0; j < mapa.length; j++) {
+			if (mapa[0][j] == jogador && mapa[1][j] == jogador && mapa[2][j] == jogador) {
+				return true;
+				
+			}
+			
+		}
+		
+		if (mapa[0][0] == jogador && mapa[1][1] == jogador && mapa[2][2] == jogador) {
+			return true;
+		}
+		
+		if (mapa[2][0] == jogador && mapa[1][1] == jogador && mapa[0][2] == jogador) {
+			return true;
+		}
+		
+		
+		return false;
 	}
 
 }

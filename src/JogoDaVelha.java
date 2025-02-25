@@ -2,11 +2,16 @@ import java.util.Scanner;
 
 public class JogoDaVelha {
 	
-	private JogoDaVelha_Mapa jogoMapa;
-	private JogoDaVelha_PC jogoPC;
-	private JogoDaVelha_Jogador jogoJogador;
+	private JogoDaVelha_Mapa jogoMapa = new JogoDaVelha_Mapa();
+	private JogoDaVelha_PC jogoPC = new JogoDaVelha_PC(jogoMapa);
+	private JogoDaVelha_Jogador jogoJogador = new JogoDaVelha_Jogador(jogoMapa);
 	
-	private void jogar(Scanner Teclado) {}
+	private void jogar(Scanner Teclado) {
+		
+		
+		
+		
+	}
 	
 	public static void main(String[] args) {
 		

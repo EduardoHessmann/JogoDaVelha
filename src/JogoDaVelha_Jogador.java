@@ -1,17 +1,32 @@
 import java.util.Scanner;
 
 public class JogoDaVelha_Jogador {
-	
+
 	private JogoDaVelha_Mapa mapa;
 	private char letra;
-	
-	
-	
-	public void JogoDaVelha_Jogador(JogoDaVelha_Mapa mapa) {
-		
+
+	public JogoDaVelha_Jogador(JogoDaVelha_Mapa mapa) {
+		this.mapa = mapa;
+		this.letra = 'X';
 	}
-	
-	public boolean jogar(Scanner teclado) {
+
+	public boolean joga(Scanner teclado) {
+
+		int linha;
+		int coluna;
+
+		do {
+
+			System.out.println("Linha: ");
+			linha = teclado.nextInt();
+			coluna = teclado.nextInt();
+			
+		} while (mapa.jogar(linha, coluna, letra));
+		
+		if (mapa.ganhou(letra)) {
+			System.out.println("...JOGADOR GANHOU!");
+		}
+
 		return true;
 	}
 
