@@ -32,36 +32,41 @@ public class JogoDaVelha_Mapa {
 			System.out.println("");
 
 			if (i == 0) {
-				System.out.println("--------- .. Jogada: " + jogada);
+				System.out.println("------- .. Jogada: " + jogada);
 			} else {
-				System.out.println("---------");
+				System.out.println("-------");
 			}
 
-			for (int j = 0; j < mapa.length; j++) {
-				if (i == 0 || i == 2) {
-					System.out.print("|" + mapa[i][j] + "|");
-
-				} else if (j == 0 || j == 2) {
+			for (int j = 0; j < mapa[i].length; j++) {
+				if (i <= mapa.length && j == 2 || j == 0) {
 					System.out.print("|" + mapa[i][j] + "|");
 
 				} else {
-					System.out.print(mapa[i][j]);
+					System.out.print("" + mapa[i][j] + "");
 				}
 			}
 
 		}
-	System.out.println("\n------------------");
+		System.out.println("\n------------------");
 
 	}
 
 	public boolean jogar(int l, int c, char jogador) {
 
-		if (mapa[l][c] == ' ') {
+		if (mapa[l][c] == ' ' && l >= 0 && l <= 2 && c >= 0 && c <= 2) {
 			mapa[l][c] = jogador;
 
 			return true;
 
 		} else {
+			if (jogador == 'X') {
+				System.out.println("Jogada inválida! Escolha a posição novamente.");
+
+			} else {
+				return false;
+
+			}
+
 			return false;
 
 		}
@@ -70,27 +75,22 @@ public class JogoDaVelha_Mapa {
 
 	public boolean ganhou(char jogador) {
 
-		for (int i = 0; i < mapa.length; i++) {
-			if (mapa[i][0] == jogador && mapa[i][1] == jogador && mapa[i][2] == jogador) {
+			if (mapa[0][0] == jogador && mapa[0][1] == jogador && mapa[0][2] == jogador
+					|| mapa[1][0] == jogador && mapa[1][1] == jogador && mapa[1][2] == jogador
+					|| mapa[2][0] == jogador && mapa[2][1] == jogador && mapa[2][2] == jogador) {
 				return true;
 
 			}
 
-		}
-
-		for (int j = 0; j < mapa.length; j++) {
-			if (mapa[0][j] == jogador && mapa[1][j] == jogador && mapa[2][j] == jogador) {
+			if (mapa[0][0] == jogador && mapa[1][0] == jogador && mapa[2][0] == jogador
+					|| mapa[0][1] == jogador && mapa[1][1] == jogador && mapa[2][1] == jogador
+					|| mapa[0][2] == jogador && mapa[1][2] == jogador && mapa[2][2] == jogador) {
 				return true;
 
 			}
 
-		}
 
-		if (mapa[0][0] == jogador && mapa[1][1] == jogador && mapa[2][2] == jogador) {
-			return true;
-		}
-
-		if (mapa[2][0] == jogador && mapa[1][1] == jogador && mapa[0][2] == jogador) {
+		if (mapa[0][0] == jogador && mapa[1][1] == jogador && mapa[2][2] == jogador || mapa[2][0] == jogador && mapa[1][1] == jogador && mapa[0][2] == jogador) {
 			return true;
 		}
 

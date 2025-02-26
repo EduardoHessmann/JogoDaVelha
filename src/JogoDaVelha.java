@@ -10,34 +10,40 @@ public class JogoDaVelha {
 
 		int jogada = 0;
 
-		jogoMapa.desenha(0);
+		jogoMapa.desenha(jogada);
+		
+		int vezJogada = jogoMapa.sortear(1, 3);
 
-		if (jogoMapa.sortear(1, 3) == 1) {
+		if (vezJogada == 1) {
 			while (!jogoMapa.ganhou('X')) {
 
-				jogada++;
-				jogoJogador.joga(teclado);
-
-				jogoMapa.desenha(jogada);
 				
 				jogada++;
-				jogoPC.joga();
-
+				jogoJogador.joga(teclado);
 				jogoMapa.desenha(jogada);
-
+				vezJogada = 2;
+				
+				if (vezJogada == 2) {
+					
+				jogada++;
+				jogoPC.joga();
+				jogoMapa.desenha(jogada);
+				
+				}
 			}
 		} else {
 			while (!jogoMapa.ganhou('O')) {
 
 				jogada++;
 				jogoPC.joga();
-
 				jogoMapa.desenha(jogada);
+				vezJogada = 1;
 
+				if(vezJogada == 1) {
 				jogada++;
 				jogoJogador.joga(teclado);
-
 				jogoMapa.desenha(jogada);
+				}
 
 			}
 

@@ -13,11 +13,13 @@ public class JogoDaVelha_PC {
 		int linha;
 		int coluna;
 
+		do {
+			
 			linha = mapa.sortear(0, 3);
 			coluna = mapa.sortear(0, 3);
 			
-		mapa.jogar(linha, coluna, letra);
-		
+		} while (!mapa.jogar(linha, coluna, letra));
+			
 		if (mapa.ganhou(letra)) {
 			System.out.println("...PC GANHOU!");
 		}
