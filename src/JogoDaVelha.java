@@ -10,39 +10,65 @@ public class JogoDaVelha {
 
 		int jogada = 0;
 
-		jogoMapa.desenha(jogada);
-		
+		boolean alguemGanhou = false;
+
 		int vezJogada = jogoMapa.sortear(1, 3);
 
-		if (vezJogada == 1) {
-			while (!jogoMapa.ganhou('X')) {
+		jogoMapa.limpaMapa();
 
-				
+		jogoMapa.desenha(jogada);
+
+		while (!alguemGanhou && jogada < 9) {
+
+			if (vezJogada == 1) {
+
 				jogada++;
 				jogoJogador.joga(teclado);
 				jogoMapa.desenha(jogada);
-				vezJogada = 2;
-				
-				if (vezJogada == 2) {
-					
-				jogada++;
-				jogoPC.joga();
-				jogoMapa.desenha(jogada);
-				
+
+				if (jogoMapa.ganhou(jogoJogador.getLetra())) {
+					alguemGanhou = true;
+					break;
 				}
-			}
-		} else {
-			while (!jogoMapa.ganhou('O')) {
 
 				jogada++;
 				jogoPC.joga();
 				jogoMapa.desenha(jogada);
-				vezJogada = 1;
+				
+				if (jogoMapa.ganhou(jogoPC.getLetra()) ) {
+					alguemGanhou = true;
+					break;
+				}
+				
+				if (alguemGanhou == false && jogada == 9) {
+					System.out.print("... EMPATOU!");
+					break;
+				}
 
-				if(vezJogada == 1) {
+			} else {
+
+				jogada++;
+				jogoPC.joga();
+				jogoMapa.desenha(jogada);
+
+				if (jogoMapa.ganhou(jogoPC.getLetra())) {
+					alguemGanhou = true;
+					break;
+
+				}
+
 				jogada++;
 				jogoJogador.joga(teclado);
 				jogoMapa.desenha(jogada);
+				
+				if (jogoMapa.ganhou(jogoPC.getLetra()) ) {
+					alguemGanhou = true;
+					break;
+				}
+				
+				if (jogada == 9) {
+					System.out.print("... EMPATOU!");
+					break;
 				}
 
 			}
@@ -59,7 +85,15 @@ public class JogoDaVelha {
 
 		char opcao = 's';
 
-		jogoDaVelha.jogar(teclado);
+		while (opcao == 's' || opcao == 'S') {
+
+			jogoDaVelha.jogar(teclado);
+
+			System.out.println("____________________________________");
+			System.out.println("Deseja jogar novamente? (s/n)");
+			opcao = teclado.next().charAt(0);
+
+		}
 
 	}
 

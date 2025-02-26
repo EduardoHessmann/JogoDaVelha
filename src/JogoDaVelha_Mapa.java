@@ -75,22 +75,25 @@ public class JogoDaVelha_Mapa {
 
 	public boolean ganhou(char jogador) {
 
-			if (mapa[0][0] == jogador && mapa[0][1] == jogador && mapa[0][2] == jogador
-					|| mapa[1][0] == jogador && mapa[1][1] == jogador && mapa[1][2] == jogador
-					|| mapa[2][0] == jogador && mapa[2][1] == jogador && mapa[2][2] == jogador) {
-				return true;
+		// linhas
+		if (mapa[0][0] == jogador && mapa[0][1] == jogador && mapa[0][2] == jogador
+				|| mapa[1][0] == jogador && mapa[1][1] == jogador && mapa[1][2] == jogador
+				|| mapa[2][0] == jogador && mapa[2][1] == jogador && mapa[2][2] == jogador) {
+			return true;
 
-			}
+		}
 
-			if (mapa[0][0] == jogador && mapa[1][0] == jogador && mapa[2][0] == jogador
-					|| mapa[0][1] == jogador && mapa[1][1] == jogador && mapa[2][1] == jogador
-					|| mapa[0][2] == jogador && mapa[1][2] == jogador && mapa[2][2] == jogador) {
-				return true;
+		// colunas
+		if (mapa[0][0] == jogador && mapa[1][0] == jogador && mapa[2][0] == jogador
+				|| mapa[0][1] == jogador && mapa[1][1] == jogador && mapa[2][1] == jogador
+				|| mapa[0][2] == jogador && mapa[1][2] == jogador && mapa[2][2] == jogador) {
+			return true;
 
-			}
+		}
 
-
-		if (mapa[0][0] == jogador && mapa[1][1] == jogador && mapa[2][2] == jogador || mapa[2][0] == jogador && mapa[1][1] == jogador && mapa[0][2] == jogador) {
+		// diagonal
+		if (mapa[0][0] == jogador && mapa[1][1] == jogador && mapa[2][2] == jogador
+				|| mapa[2][0] == jogador && mapa[1][1] == jogador && mapa[0][2] == jogador) {
 			return true;
 		}
 
