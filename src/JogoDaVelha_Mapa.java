@@ -7,6 +7,7 @@ public class JogoDaVelha_Mapa {
 	public JogoDaVelha_Mapa() {
 
 		mapa = new char[3][3];
+		limpaMapa();
 	}
 
 	public int sortear(int inicio, int fim) {
@@ -27,22 +28,29 @@ public class JogoDaVelha_Mapa {
 
 	public void desenha(int jogada) {
 
-		
 		for (int i = 0; i < mapa.length; i++) {
 			System.out.println("");
-			
+
 			if (i == 0) {
 				System.out.println("--------- .. Jogada: " + jogada);
 			} else {
 				System.out.println("---------");
-				}
-			
-			for (int j = 0; j < mapa.length; j++) {
-				System.out.print("|" + mapa[i][j] + "|");
-
 			}
+
+			for (int j = 0; j < mapa.length; j++) {
+				if (i == 0 || i == 2) {
+					System.out.print("|" + mapa[i][j] + "|");
+
+				} else if (j == 0 || j == 2) {
+					System.out.print("|" + mapa[i][j] + "|");
+
+				} else {
+					System.out.print(mapa[i][j]);
+				}
+			}
+
 		}
-		System.out.println("\n------------------");
+	System.out.println("\n------------------");
 
 	}
 
@@ -57,7 +65,7 @@ public class JogoDaVelha_Mapa {
 			return false;
 
 		}
-		
+
 	}
 
 	public boolean ganhou(char jogador) {

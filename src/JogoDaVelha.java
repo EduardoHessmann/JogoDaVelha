@@ -12,8 +12,8 @@ public class JogoDaVelha {
 
 		jogoMapa.desenha(0);
 
-		if (jogoMapa.sortear(1, 2) == 1) {
-			while (jogoMapa.ganhou((char) 0)) {
+		if (jogoMapa.sortear(1, 3) == 1) {
+			while (!jogoMapa.ganhou('X')) {
 
 				jogada++;
 				jogoJogador.joga(teclado);
@@ -27,7 +27,7 @@ public class JogoDaVelha {
 
 			}
 		} else {
-			while (jogoMapa.ganhou((char) 0)) {
+			while (!jogoMapa.ganhou('O')) {
 
 				jogada++;
 				jogoPC.joga();
