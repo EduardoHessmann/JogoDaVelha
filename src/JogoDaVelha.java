@@ -30,6 +30,13 @@ public class JogoDaVelha {
 					alguemGanhou = true;
 					break;
 				}
+				
+				//Como o jogador começa, a última jogada vai ser dele.
+				//Se todos os campos forem preenchidos e ninguém ganhar, o jogo empata.
+				if (alguemGanhou == false && jogada == 9) {
+					System.out.print("... EMPATOU!");
+					break;
+				}
 
 				jogada++;
 				jogoPC.joga();
@@ -40,10 +47,7 @@ public class JogoDaVelha {
 					break;
 				}
 				
-				if (alguemGanhou == false && jogada == 9) {
-					System.out.print("... EMPATOU!");
-					break;
-				}
+				
 
 			} else {
 
@@ -56,18 +60,18 @@ public class JogoDaVelha {
 					break;
 
 				}
+				
+				if (alguemGanhou == false && jogada == 9) {
+					System.out.print("... EMPATOU!");
+					break;
+				}
 
 				jogada++;
 				jogoJogador.joga(teclado);
 				jogoMapa.desenha(jogada);
 				
-				if (jogoMapa.ganhou(jogoPC.getLetra()) ) {
+				if (jogoMapa.ganhou(jogoJogador.getLetra()) ) {
 					alguemGanhou = true;
-					break;
-				}
-				
-				if (jogada == 9) {
-					System.out.print("... EMPATOU!");
 					break;
 				}
 
@@ -89,7 +93,7 @@ public class JogoDaVelha {
 
 			jogoDaVelha.jogar(teclado);
 
-			System.out.println("____________________________________");
+			System.out.println("\n____________________________________");
 			System.out.println("Deseja jogar novamente? (s/n)");
 			opcao = teclado.next().charAt(0);
 

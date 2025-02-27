@@ -46,10 +46,9 @@ public class JogoDaVelha_Jogador {
 
 			System.out.println("...JOGADOR GANHOU!");
 
-			return true;
 		}
 
-		return false;
+		return true;
 	}
 
 }

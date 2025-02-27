@@ -35,12 +35,12 @@ public class JogoDaVelha_PC {
 			coluna = mapa.sortear(0, 3);
 
 		} while (!mapa.jogar(linha, coluna, letra));
+		
+		System.out.println("PC[" + linha + ", " + coluna + "]");
 
 		if (mapa.ganhou(letra)) {
 			System.out.println("...PC GANHOU!");
 		}
-
-		System.out.println("PC(" + linha + ", " + coluna + ")");
 
 		return true;
 	}
